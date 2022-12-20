@@ -7,6 +7,11 @@ defmodule Identicon do
     |> filter_odd_squares
     |> build_pixel_map
     |> draw_image
+    |> save_image(input)
+  end
+
+  def save_image(image_file, input) do
+    File.write("#{input}.png", image_file)
   end
 
   def draw_image(%Identicon.Image{pixel_map: pixel_map, color: color}) do
